@@ -25,9 +25,12 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+- [x] Describe the game's purpose.
+  The Game Glitch Investigator is an AI-generated number guessing game where the player seeks to find a randomly generated secret number within a specific number of attempts, based on difficulty.
+- [x] Detail which bugs you found.
+  I found that the game was giving incorrect hints (due to a string comparison bug on alternate attempts), the attempts left display was mathematically incorrect before the first guess, and the scoring logic incorrectly added points when a user submitted a "Too High" guess on an even-numbered attempt.
+- [x] Explain what fixes you applied.
+  I refactored the core logic into `logic_utils.py` to decouple UI from logic. I enforced type checking by casting all secret and guess variables to integers to prevent the type error masking. I changed the attempt tracking session state to initialize at 0, and updated the score deduction to always correctly subtract 5 points upon a bad guess.
 
 ## 📸 Demo
 
